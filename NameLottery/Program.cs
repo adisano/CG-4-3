@@ -29,6 +29,11 @@ namespace NameLottery
                 //execute if the user presses enter without typing any input
                 if (namesNew == "")
                 {
+                    //close the program if the user presses enter without typing any names
+                    if (namesLimit == 0)
+                    {
+                        break;
+                    }
                     //assign value to an integer according to random seed
                     int namesWinner = namesRandomizer.Next(namesLimit);
                     //display the winner and all entrants
@@ -38,6 +43,8 @@ namespace NameLottery
                     {
                         Console.WriteLine(namesLosers);
                     }
+                    //await input before closing program
+                    Console.ReadLine();
                     break;
                 }
                 else
@@ -57,8 +64,7 @@ namespace NameLottery
 
                 
             }
-            //await input before closing program
-            Console.ReadLine();
+
 
         }
     }
